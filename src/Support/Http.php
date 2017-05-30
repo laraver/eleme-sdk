@@ -42,6 +42,13 @@ class Http
         return $isArray ? json_decode($content, true) : $content;
     }
 
+    public function json($url, $query = [], $isArray = false)
+    {
+        $content = $this->request('post', $url, ['json' => $query]);
+
+        return $isArray ? json_decode($content, true) : $content;
+    }
+
     /**
      * send a request.
      *

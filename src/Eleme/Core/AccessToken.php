@@ -32,8 +32,8 @@ class AccessToken
      */
     private $cache;
 
-    const API_URL = "https://open-api.shop.ele.me";
-    const SANDBOX_API_URL = "https://open-api-sandbox.shop.ele.me";
+    const API_URL = 'https://open-api.shop.ele.me';
+    const SANDBOX_API_URL = 'https://open-api-sandbox.shop.ele.me';
 
     protected $prefix = 'laraver.waimai.eleme.token.';
 
@@ -75,40 +75,39 @@ class AccessToken
 
     private function getTokenFromServer()
     {
-        $response = (new AbstractAPI($this))->getHttp()->post($this->url.'/token', [
+        $response = (new Api($this))->getHttp()->post($this->url.'/token', [
             'grant_type' => 'client_credentials',
         ], true);
 
         return $response;
     }
 
-    public function signature($params)
+    public function signature($protocol)
     {
-        ksort($params);
+        $merged = array_merge($protocol['metas'], $protocol['params']);
+        ksort($merged);
+        $string = '';
 
-        $text = '';
-        foreach ($params as $key => $value) {
-            $text .= $key . $value;
+        foreach ($merged as $key => $value) {
+            $string .= $key . '=' . json_encode($value, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         }
 
-        return md5($this->secret . $text . $this->secret);
+        $splice = $protocol['action'] . $this->getToken() . $string . $this->secret;
+
+        return strtoupper(md5($splice));
     }
 
-    public function signatureParam($method, $args, $version = '1.0')
+    public function createUuid()
     {
-        $params = [
-            'app_id' => $this->appId,
-            'method' => $method,
-            'timestamp' => date('Y-m-d H:i:s'),
-            'v' => $version,
-        ];
-
-        $args = array_merge($args, $params);
-
-        $args['sign'] = $this->signature($args);
-
-        return $args;
+        return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+            mt_rand(0, 0xffff), mt_rand(0, 0xffff),
+            mt_rand(0, 0xffff),
+            mt_rand(0, 0x0fff) | 0x4000,
+            mt_rand(0, 0x3fff) | 0x8000,
+            mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
+        );
     }
+
 
     public function getCacheKey()
     {
