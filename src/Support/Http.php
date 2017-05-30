@@ -42,6 +42,14 @@ class Http
         return $isArray ? json_decode($content, true) : $content;
     }
 
+    /**
+     * send a request.
+     *
+     * @param $method
+     * @param $url
+     * @param array $options
+     * @return string
+     */
     public function request($method, $url, $options = [])
     {
         $options['handler'] = $this->getHandler();
