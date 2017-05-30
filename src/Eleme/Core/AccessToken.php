@@ -5,30 +5,10 @@ namespace Laraver\Waimai\Eleme\Core;
 use Doctrine\Common\Cache\Cache;
 use Exception;
 use Illuminate\Support\Arr;
+use Laraver\Waimai\Core\AbstractAccessToken;
 
-class AccessToken
+class AccessToken extends AbstractAccessToken
 {
-    public $appId;
-
-    public $secret;
-
-    public $url;
-
-    public $token;
-
-    /**
-     * Cache key.
-     *
-     * @var string
-     */
-    protected $cacheKey;
-
-    /**
-     * Cache.
-     *
-     * @var Cache
-     */
-    private $cache;
 
     const API_URL = 'https://open-api.shop.ele.me';
     const SANDBOX_API_URL = 'https://open-api-sandbox.shop.ele.me';
@@ -108,12 +88,8 @@ class AccessToken
         );
     }
 
-    public function getCacheKey()
+    public function getPrefix()
     {
-        if (is_null($this->cacheKey)) {
-            return $this->prefix.$this->appId;
-        }
-
-        return $this->cacheKey;
+        return 'laraver.waimai.eleme.token.';
     }
 }
