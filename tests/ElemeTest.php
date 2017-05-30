@@ -74,9 +74,9 @@ class ElemeTest extends BaseTest
     public function testCreateCategory()
     {
         $category = $this->eleme->product->createCategory([
-            'shopId' => getenv('ELEME_SHOP_ID'),
-            'name' => '小炒类',
-            'description' => '这个味，香！'
+            'shopId'      => getenv('ELEME_SHOP_ID'),
+            'name'        => '小炒类',
+            'description' => '这个味，香！',
         ]);
 
         print_r($category);
@@ -90,10 +90,10 @@ class ElemeTest extends BaseTest
     public function testCreateCategoryWithChildren()
     {
         $category = $this->eleme->product->createCategoryWithChildren([
-            'shopId' => getenv('ELEME_SHOP_ID'),
-            'name' => '炒饭类',
-            'parentId' => 524244525,
-            'description' => '只有一个扬州炒饭怎么破？'
+            'shopId'      => getenv('ELEME_SHOP_ID'),
+            'name'        => '炒饭类',
+            'parentId'    => 524244525,
+            'description' => '只有一个扬州炒饭怎么破？',
         ]);
 
         print_r($category);
@@ -107,9 +107,9 @@ class ElemeTest extends BaseTest
     public function testUpdateCategory()
     {
         $category = $this->eleme->product->updateCategory([
-            'categoryId' => 524244525,
-            'name' => '酒水类',
-            'description' => '不醉无归'
+            'categoryId'  => 524244525,
+            'name'        => '酒水类',
+            'description' => '不醉无归',
         ]);
 
         print_r($category);
@@ -123,10 +123,10 @@ class ElemeTest extends BaseTest
     public function testUpdateCategoryWithChildren()
     {
         $category = $this->eleme->product->updateCategoryWithChildren([
-            'categoryId' => 524244525,
-            'name' => '酒水类',
-            'parentId' => 0,
-            'description' => '不醉无归'
+            'categoryId'  => 524244525,
+            'name'        => '酒水类',
+            'parentId'    => 0,
+            'description' => '不醉无归',
         ]);
 
         print_r($category);
@@ -152,10 +152,10 @@ class ElemeTest extends BaseTest
     public function testSetCategoryPositions()
     {
         $category = $this->eleme->product->setCategoryPositions([
-            'shopId' => getenv('ELEME_SHOP_ID'),
+            'shopId'      => getenv('ELEME_SHOP_ID'),
             'categoryIds' => [
-                514810881, 524264475
-            ]
+                514810881, 524264475,
+            ],
         ]);
 
         print_r($category);
@@ -169,15 +169,15 @@ class ElemeTest extends BaseTest
     public function testSetCategoryPositionsWithChildren()
     {
         $category = $this->eleme->product->setCategoryPositionsWithChildren([
-            'shopId' => getenv('ELEME_SHOP_ID'),
+            'shopId'                  => getenv('ELEME_SHOP_ID'),
             'categoryWithChildrenIds' => [
                 [
-                    'parentId' => '',
+                    'parentId'    => '',
                     'childrenIds' => [
 
-                    ]
-                ]
-            ]
+                    ],
+                ],
+            ],
         ]);
 
         print_r($category);
@@ -202,7 +202,7 @@ class ElemeTest extends BaseTest
      */
     public function testUploadImage()
     {
-        $base64 = base64_encode(file_get_contents(__DIR__ . '/test.jpg'));
+        $base64 = base64_encode(file_get_contents(__DIR__.'/test.jpg'));
 
         $file = $this->eleme->product->uploadImage($base64);
 
@@ -265,7 +265,7 @@ class ElemeTest extends BaseTest
     public function testBatchGetItems()
     {
         $items = $this->eleme->product->batchGetItems([
-            603131177, 603127965
+            603131177, 603127965,
         ]);
 
         print_r($items);
@@ -279,7 +279,7 @@ class ElemeTest extends BaseTest
     public function testCreateItem()
     {
         $items = $this->eleme->product->createItem([
-            ''
+            '',
         ]);
 
         print_r($items);
