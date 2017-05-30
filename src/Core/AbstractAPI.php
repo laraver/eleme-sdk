@@ -2,7 +2,6 @@
 
 namespace Laraver\Waimai\Core;
 
-
 use Exception;
 use Laraver\Waimai\Support\Http;
 use Psr\Http\Message\RequestInterface;
@@ -17,7 +16,6 @@ abstract class AbstractAPI
     protected $http;
 
     /**
-     *
      * @return Http
      */
     public function getHttp()
@@ -37,6 +35,7 @@ abstract class AbstractAPI
      * add headers.
      *
      * @param $headers
+     *
      * @return \Closure
      */
     protected function headerMiddleware($headers)
@@ -59,13 +58,16 @@ abstract class AbstractAPI
      *
      * @param $api
      * @param array $args
+     *
      * @return mixed
      */
     abstract public function parseJSON($api, array $args = []);
 
     /**
      * Check the array data errors, and Throw exception when the contents contains error.
+     *
      * @param array $content
+     *
      * @throws Exception
      */
     abstract protected function checkAndThrow($content);

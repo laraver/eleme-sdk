@@ -2,10 +2,8 @@
 
 namespace Laraver\Waimai\Tests;
 
-
 class ElemeTest extends BaseTest
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -29,5 +27,4 @@ class ElemeTest extends BaseTest
     {
         print_r($this->eleme->product->getShopCategories(getenv('ELEME_SHOP_ID')));
     }
-
 }
