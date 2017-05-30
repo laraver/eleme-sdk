@@ -1,21 +1,17 @@
 <?php
 
-
 namespace Laraver\Waimai\Eleme;
-
 
 use Laraver\Waimai\Eleme\Core\AccessToken;
 use Laraver\Waimai\Foundation\Application;
 
 /**
- * Class Eleme
- * @package Laraver\Waimai\Eleme
+ * Class Eleme.
  *
  * @property AccessToken $access_token
  */
 class Eleme extends Application
 {
-
     protected $providers = [
 //        AccessTokenProvider::class,
     ];

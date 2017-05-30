@@ -2,16 +2,14 @@
 
 namespace Laraver\Waimai\Foundation;
 
-
 use Doctrine\Common\Cache\FilesystemCache;
 use Pimple\Container;
 
 /**
- * Class Application
+ * Class Application.
  */
 abstract class Application extends Container
 {
-
     protected $providers;
 
     public function __construct($config)
@@ -27,7 +25,7 @@ abstract class Application extends Container
         };
 
         $this->registerProviders();
-        
+
         $this['access_token'] = $this->getAccessToken($this['config'], $this['cache']);
     }
 
@@ -54,6 +52,7 @@ abstract class Application extends Container
     {
         return $this->offsetGet($id);
     }
+
     /**
      * Magic set access.
      *
@@ -64,5 +63,4 @@ abstract class Application extends Container
     {
         $this->offsetSet($id, $value);
     }
-
 }

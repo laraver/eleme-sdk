@@ -1,22 +1,16 @@
 <?php
 
-
 namespace Laraver\Waimai\Support;
-
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
-use Psr\Http\Message\RequestInterface;
 
 /**
- * Class Http
- * @package Laraver\Waimai\Support
- *
+ * Class Http.
  */
 class Http
 {
-
     protected $middlewares = [];
 
     /**
@@ -32,7 +26,8 @@ class Http
     /**
      * @param $url
      * @param array $query
-     * @param bool $isArray
+     * @param bool  $isArray
+     *
      * @return mixed|string
      */
     public function post($url, $query = [], $isArray = false)
@@ -48,6 +43,7 @@ class Http
      * @param $method
      * @param $url
      * @param array $options
+     *
      * @return string
      */
     public function request($method, $url, $options = [])
@@ -73,7 +69,6 @@ class Http
 
     protected function getHandler()
     {
-
         $stack = new HandlerStack();
         $stack->setHandler(new CurlHandler());
 
@@ -83,5 +78,4 @@ class Http
 
         return $stack;
     }
-
 }

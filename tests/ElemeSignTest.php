@@ -7,7 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class ElemeSignTest extends TestCase
 {
-
     /**
      * @test
      */
@@ -16,10 +15,9 @@ class ElemeSignTest extends TestCase
         $eleme = new Eleme([
             'app_id' => '',
             'secret' => '',
-            'debug' => true,
+            'debug'  => true,
         ]);
 
         echo $eleme->access_token->getToken();
     }
-
 }
