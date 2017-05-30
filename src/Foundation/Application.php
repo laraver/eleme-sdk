@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Laraver
- * Date: 2017/2/22
- * Time: 22:30
- */
 
 namespace Laraver\Waimai\Foundation;
 

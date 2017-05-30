@@ -29,11 +29,6 @@ class Http
         $this->client = new Client();
     }
 
-    public function withHeader($headers)
-    {
-//        $this
-    }
-
     /**
      * @param $url
      * @param array $query
@@ -54,18 +49,6 @@ class Http
         $response = $this->client->request($method, $url, $options);
 
         return $response->getBody()->getContents();
-    }
-    function add_header($header, $value)
-    {
-        return function (callable $handler) use ($header, $value) {
-            return function (
-                RequestInterface $request,
-                array $options
-            ) use ($handler, $header, $value) {
-                $request = $request->withHeader($header, $value);
-                return $handler($request, $options);
-            };
-        };
     }
 
     public function getMiddlewares()

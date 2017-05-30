@@ -5,7 +5,6 @@ namespace Laraver\Waimai\Eleme;
 
 
 use Laraver\Waimai\Eleme\Core\AccessToken;
-use Laraver\Waimai\Eleme\Providers\AccessTokenProvider;
 use Laraver\Waimai\Foundation\Application;
 
 /**

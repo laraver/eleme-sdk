@@ -1,19 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Laraver
- * Date: 2017/2/22
- * Time: 22:40
- */
 
 namespace Laraver\Waimai\Eleme\Core;
 
 
-use GuzzleHttp\Client;
-use Laraver\Waimai\Eleme\Core\AccessToken;
 use Laraver\Waimai\Support\Http;
-use Laraver\Youzan\Core\Exceptions\HttpException;
-use Illuminate\Support\Collection;
 use Psr\Http\Message\RequestInterface;
 
 class AbstractAPI
