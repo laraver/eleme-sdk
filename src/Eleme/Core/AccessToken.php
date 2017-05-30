@@ -2,14 +2,12 @@
 
 namespace Laraver\Waimai\Eleme\Core;
 
-
 use Doctrine\Common\Cache\Cache;
 use Exception;
 use Illuminate\Support\Arr;
 
 class AccessToken
 {
-
     public $appId;
 
     public $secret;
@@ -42,6 +40,7 @@ class AccessToken
      *
      * @param $config
      * @param Cache $cache
+     *
      * @throws Exception
      */
     public function __construct($config, Cache $cache)
@@ -62,7 +61,7 @@ class AccessToken
 
         $cached = $this->cache->fetch($cacheKey);
 
-        if($force || !$cached) {
+        if ($force || !$cached) {
             $token = $this->getTokenFromServer();
 
             $this->cache->save($cacheKey, $token['access_token'], $token['expires_in'] - 1800);
@@ -88,11 +87,12 @@ class AccessToken
         ksort($merged);
         $string = '';
 
+
         foreach ($merged as $key => $value) {
             $string .= $key . '=' . json_encode($value, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         }
 
-        $splice = $protocol['action'] . $this->getToken() . $string . $this->secret;
+        $splice = $protocol['action'] .$this->getToken() . $string . $this->secret;
 
         return strtoupper(md5($splice));
     }
@@ -104,7 +104,8 @@ class AccessToken
             mt_rand(0, 0xffff),
             mt_rand(0, 0x0fff) | 0x4000,
             mt_rand(0, 0x3fff) | 0x8000,
-            mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
+        mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
+
         );
     }
 
@@ -117,5 +118,4 @@ class AccessToken
 
         return $this->cacheKey;
     }
-
 }
