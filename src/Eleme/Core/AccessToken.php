@@ -9,7 +9,6 @@ use Laraver\Waimai\Core\AbstractAccessToken;
 
 class AccessToken extends AbstractAccessToken
 {
-
     const API_URL = 'https://open-api.shop.ele.me';
     const SANDBOX_API_URL = 'https://open-api-sandbox.shop.ele.me';
 
