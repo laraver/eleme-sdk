@@ -87,12 +87,11 @@ class AccessToken
         ksort($merged);
         $string = '';
 
-
         foreach ($merged as $key => $value) {
-            $string .= $key . '=' . json_encode($value, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+            $string .= $key.'='.json_encode($value, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         }
 
-        $splice = $protocol['action'] .$this->getToken() . $string . $this->secret;
+        $splice = $protocol['action'].$this->getToken().$string.$this->secret;
 
         return strtoupper(md5($splice));
     }
@@ -108,7 +107,6 @@ class AccessToken
 
         );
     }
-
 
     public function getCacheKey()
     {

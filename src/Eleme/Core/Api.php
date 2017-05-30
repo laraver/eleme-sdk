@@ -2,7 +2,6 @@
 
 namespace Laraver\Waimai\Eleme\Core;
 
-
 use Exception;
 use Laraver\Waimai\Core\AbstractAPI;
 use Laraver\Waimai\Support\Http;
@@ -43,6 +42,7 @@ class Api extends AbstractAPI
     public function setAccessToken(AccessToken $accessToken)
     {
         $this->accessToken = $accessToken;
+
         return $this;
     }
 
@@ -51,19 +51,20 @@ class Api extends AbstractAPI
      *
      * @param $api
      * @param array $args
+     *
      * @return mixed
      */
     public function parseJSON($api, array $args = [])
     {
         $http = $this->getHttp();
-        
+
         $protocol = [
-            'nop' => '1.0.0',
-            'id' => $this->accessToken->createUuid(),
+            'nop'    => '1.0.0',
+            'id'     => $this->accessToken->createUuid(),
             'action' => $api,
-            'token' => $this->accessToken->getToken(),
-            'metas' => [
-                'app_key' => $this->accessToken->appId,
+            'token'  => $this->accessToken->getToken(),
+            'metas'  => [
+                'app_key'   => $this->accessToken->appId,
                 'timestamp' => time(),
             ],
             'params' => $args,
@@ -80,12 +81,14 @@ class Api extends AbstractAPI
 
     /**
      * Check the array data errors, and Throw exception when the contents contains error.
+     *
      * @param array $content
+     *
      * @throws Exception
      */
     protected function checkAndThrow($content)
     {
-        if(!$content) {
+        if (!$content) {
             throw new Exception('invalid response.');
         }
 
@@ -97,8 +100,8 @@ class Api extends AbstractAPI
     public function middlewares()
     {
         $this->http->addMiddleware($this->headerMiddleware([
-            'Authorization' => 'Basic ' . base64_encode($this->accessToken->appId.':'.$this->accessToken->secret),
-            'Accept-Encoding' => 'gzip'
+            'Authorization'   => 'Basic '.base64_encode($this->accessToken->appId.':'.$this->accessToken->secret),
+            'Accept-Encoding' => 'gzip',
         ]));
     }
 }

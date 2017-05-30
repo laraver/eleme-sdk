@@ -8,7 +8,6 @@ use PHPUnit\Framework\TestCase;
 
 class BaseTest extends TestCase
 {
-
     /**
      * @var Eleme
      */
@@ -27,8 +26,7 @@ class BaseTest extends TestCase
         $this->eleme = new Eleme([
             'app_id' => getenv('ELEME_APP_ID'),
             'secret' => getenv('ELEME_SECRET'),
-            'debug' => true,
+            'debug'  => true,
         ]);
     }
-
 }
