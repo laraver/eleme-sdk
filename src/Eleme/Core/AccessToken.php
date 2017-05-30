@@ -2,14 +2,12 @@
 
 namespace Laraver\Waimai\Eleme\Core;
 
-
 use Doctrine\Common\Cache\Cache;
 use Exception;
 use Illuminate\Support\Arr;
 
 class AccessToken
 {
-
     public $appId;
 
     public $secret;
@@ -32,8 +30,8 @@ class AccessToken
      */
     private $cache;
 
-    const API_URL = "https://open-api.shop.ele.me";
-    const SANDBOX_API_URL = "https://open-api-sandbox.shop.ele.me";
+    const API_URL = 'https://open-api.shop.ele.me';
+    const SANDBOX_API_URL = 'https://open-api-sandbox.shop.ele.me';
 
     protected $prefix = 'laraver.waimai.eleme.token.';
 
@@ -42,6 +40,7 @@ class AccessToken
      *
      * @param $config
      * @param Cache $cache
+     *
      * @throws Exception
      */
     public function __construct($config, Cache $cache)
@@ -62,7 +61,7 @@ class AccessToken
 
         $cached = $this->cache->fetch($cacheKey);
 
-        if($force || !$cached) {
+        if ($force || !$cached) {
             $token = $this->getTokenFromServer();
 
             $this->cache->save($cacheKey, $token['access_token'], $token['expires_in'] - 1800);
@@ -88,19 +87,19 @@ class AccessToken
 
         $text = '';
         foreach ($params as $key => $value) {
-            $text .= $key . $value;
+            $text .= $key.$value;
         }
 
-        return md5($this->secret . $text . $this->secret);
+        return md5($this->secret.$text.$this->secret);
     }
 
     public function signatureParam($method, $args, $version = '1.0')
     {
         $params = [
-            'app_id' => $this->appId,
-            'method' => $method,
+            'app_id'    => $this->appId,
+            'method'    => $method,
             'timestamp' => date('Y-m-d H:i:s'),
-            'v' => $version,
+            'v'         => $version,
         ];
 
         $args = array_merge($args, $params);
@@ -118,5 +117,4 @@ class AccessToken
 
         return $this->cacheKey;
     }
-
 }

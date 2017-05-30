@@ -2,7 +2,6 @@
 
 namespace Laraver\Waimai\Eleme\Core;
 
-
 use Laraver\Waimai\Support\Http;
 use Psr\Http\Message\RequestInterface;
 
@@ -52,9 +51,9 @@ class AbstractAPI
     {
         print_r($this->accessToken);
         $this->http->addMiddleware($this->headerMiddleware([
-            'Authorization' => 'Basic ' . base64_encode($this->accessToken->appId.':'.$this->accessToken->secret),
-            'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
-            'Accept-Encoding' => 'gzip'
+            'Authorization'   => 'Basic '.base64_encode($this->accessToken->appId.':'.$this->accessToken->secret),
+            'Content-Type'    => 'application/x-www-form-urlencoded; charset=utf-8',
+            'Accept-Encoding' => 'gzip',
         ]));
     }
 
@@ -81,6 +80,7 @@ class AbstractAPI
     public function setAccessToken(AccessToken $accessToken)
     {
         $this->accessToken = $accessToken;
+
         return $this;
     }
 
@@ -90,6 +90,7 @@ class AbstractAPI
      * @param string $method
      * @param $api
      * @param array $args
+     *
      * @return mixed
      */
     public function parseJSON($method, $api, array $args)
@@ -109,6 +110,7 @@ class AbstractAPI
      * Check the array data errors, and Throw exception when the contents contains error.
      *
      * @param array $content
+     *
      * @throws HttpException
      */
     protected function checkAndThrow(array $content)
@@ -119,14 +121,16 @@ class AbstractAPI
     }
 
     /**
-     * set the api version
+     * set the api version.
      *
      * @param $version
+     *
      * @return $this
      */
     public function setVersion($version)
     {
         $this->version = $version;
+
         return $this;
     }
 }
