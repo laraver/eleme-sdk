@@ -28,8 +28,6 @@ abstract class AbstractAccessToken
      */
     protected $cache;
 
-    protected $prefix;
-
     public function getCacheKey()
     {
         if (is_null($this->cacheKey)) {

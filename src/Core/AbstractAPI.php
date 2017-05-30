@@ -58,10 +58,10 @@ abstract class AbstractAPI
      *
      * @param $api
      * @param array $args
-     *
+     * @param string $method
      * @return mixed
      */
-    abstract public function parseJSON($api, array $args = []);
+    abstract public function parseJSON($api, array $args = [], $method = 'post');
 
     /**
      * Check the array data errors, and Throw exception when the contents contains error.

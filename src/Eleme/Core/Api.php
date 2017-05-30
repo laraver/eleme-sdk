@@ -52,9 +52,10 @@ class Api extends AbstractAPI
      * @param $api
      * @param array $args
      *
+     * @param string $method
      * @return mixed
      */
-    public function parseJSON($api, array $args = [])
+    public function parseJSON($api, array $args = [], $method = 'post')
     {
         $http = $this->getHttp();
 
@@ -76,7 +77,7 @@ class Api extends AbstractAPI
 
         $this->checkAndThrow($result);
 
-        return $result['result'];
+        return $result;
     }
 
     /**
