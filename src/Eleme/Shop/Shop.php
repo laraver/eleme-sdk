@@ -11,13 +11,13 @@ class Shop extends Api
      *
      * @param $shopId
      *
-     * @return Collection
+     * @return array
      */
     public function getShop($shopId)
     {
         $result = $this->parseJSON('eleme.shop.getShop', ['shopId' => $shopId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -25,13 +25,13 @@ class Shop extends Api
      *
      * @param $params
      *
-     * @return Collection
+     * @return array
      */
     public function updateShop($params)
     {
         $result = $this->parseJSON('eleme.shop.updateShop', $params);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -39,13 +39,13 @@ class Shop extends Api
      *
      * @param $shopIds
      *
-     * @return Collection
+     * @return array
      */
     public function mgetShopStatus($shopIds)
     {
         $result = $this->parseJSON('eleme.shop.mgetShopStatus', ['shopIds' => $shopIds]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -53,13 +53,13 @@ class Shop extends Api
      *
      * @param $params
      *
-     * @return Collection
+     * @return array
      */
     public function setDeliveryTime($params)
     {
         $result = $this->parseJSON('eleme.shop.setDeliveryTime', $params);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -67,12 +67,12 @@ class Shop extends Api
      *
      * @param $params
      *
-     * @return Collection
+     * @return array
      */
     public function setOnlineRefund($params)
     {
         $result = $this->parseJSON('eleme.shop.setOnlineRefund', $params);
 
-        return new Collection($result);
+        return $result;
     }
 }

@@ -12,12 +12,12 @@ class Packs extends Api
      *
      * @param $shopId
      *
-     * @return Collection
+     * @return array
      */
     public function getEffectServicePackContract($shopId)
     {
         $result = $this->parseJSON('eleme.packs.getEffectServicePackContract', ['shopId' => $shopId]);
 
-        return new Collection($result);
+        return $result;
     }
 }

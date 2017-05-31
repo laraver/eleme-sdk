@@ -11,13 +11,13 @@ class Order extends Api
      *
      * @param $orderId
      *
-     * @return Collection
+     * @return array
      */
     public function getOrder($orderId)
     {
         $result = $this->parseJSON('eleme.order.getOrder', ['orderId' => $orderId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -25,13 +25,13 @@ class Order extends Api
      *
      * @param $orderIds
      *
-     * @return Collection
+     * @return array
      */
     public function mgetOrders($orderIds)
     {
         $result = $this->parseJSON('eleme.order.mgetOrders', ['orderIds' => $orderIds]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -39,13 +39,13 @@ class Order extends Api
      *
      * @param $orderId
      *
-     * @return Collection
+     * @return array
      */
     public function confirmOrderLite($orderId)
     {
         $result = $this->parseJSON('eleme.order.confirmOrderLite', ['orderId' => $orderId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -53,13 +53,13 @@ class Order extends Api
      *
      * @param $orderId
      *
-     * @return Collection
+     * @return array
      */
     public function confirmOrder($orderId)
     {
         $result = $this->parseJSON('eleme.order.confirmOrder', ['orderId' => $orderId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -67,13 +67,13 @@ class Order extends Api
      *
      * @param $params
      *
-     * @return Collection
+     * @return array
      */
     public function cancelOrderLite($params)
     {
         $result = $this->parseJSON('eleme.order.cancelOrderLite', $params);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -81,13 +81,13 @@ class Order extends Api
      *
      * @param $params
      *
-     * @return Collection
+     * @return array
      */
     public function cancelOrder($params)
     {
         $result = $this->parseJSON('eleme.order.cancelOrder', $params);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -95,13 +95,13 @@ class Order extends Api
      *
      * @param $orderId
      *
-     * @return Collection
+     * @return array
      */
     public function agreeRefundLite($orderId)
     {
         $result = $this->parseJSON('eleme.order.agreeRefundLite', ['orderId' => $orderId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -109,13 +109,13 @@ class Order extends Api
      *
      * @param $orderId
      *
-     * @return Collection
+     * @return array
      */
     public function agreeRefund($orderId)
     {
         $result = $this->parseJSON('eleme.order.agreeRefund', ['orderId' => $orderId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -123,13 +123,13 @@ class Order extends Api
      *
      * @param $params
      *
-     * @return Collection
+     * @return array
      */
     public function disagreeRefundLite($params)
     {
         $result = $this->parseJSON('eleme.order.disagreeRefundLite', $params);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -137,13 +137,13 @@ class Order extends Api
      *
      * @param $params
      *
-     * @return Collection
+     * @return array
      */
     public function disagreeRefund($params)
     {
         $result = $this->parseJSON('eleme.order.disagreeRefund', $params);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -151,13 +151,13 @@ class Order extends Api
      *
      * @param $orderId
      *
-     * @return Collection
+     * @return array
      */
     public function getDeliveryStateRecord($orderId)
     {
         $result = $this->parseJSON('eleme.order.getDeliveryStateRecord', ['orderId' => $orderId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -165,13 +165,13 @@ class Order extends Api
      *
      * @param $orderIds
      *
-     * @return Collection
+     * @return array
      */
     public function batchGetDeliveryStates($orderIds)
     {
         $result = $this->parseJSON('eleme.order.batchGetDeliveryStates', ['orderIds' => $orderIds]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -179,13 +179,13 @@ class Order extends Api
      *
      * @param $orderId
      *
-     * @return Collection
+     * @return array
      */
     public function deliveryBySelfLite($orderId)
     {
         $result = $this->parseJSON('eleme.order.deliveryBySelfLite', ['orderId' => $orderId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -193,13 +193,13 @@ class Order extends Api
      *
      * @param $orderId
      *
-     * @return Collection
+     * @return array
      */
     public function deliveryBySelf($orderId)
     {
         $result = $this->parseJSON('eleme.order.deliveryBySelf', ['orderId' => $orderId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -207,13 +207,13 @@ class Order extends Api
      *
      * @param $orderId
      *
-     * @return Collection
+     * @return array
      */
     public function noMoreDeliveryLite($orderId)
     {
         $result = $this->parseJSON('eleme.order.noMoreDeliveryLite', ['orderId' => $orderId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -221,13 +221,13 @@ class Order extends Api
      *
      * @param $orderId
      *
-     * @return Collection
+     * @return array
      */
     public function noMoreDelivery($orderId)
     {
         $result = $this->parseJSON('eleme.order.noMoreDelivery', ['orderId' => $orderId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -235,13 +235,13 @@ class Order extends Api
      *
      * @param $orderId
      *
-     * @return Collection
+     * @return array
      */
     public function receivedOrderLite($orderId)
     {
         $result = $this->parseJSON('eleme.order.receivedOrderLite', ['orderId' => $orderId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -249,13 +249,13 @@ class Order extends Api
      *
      * @param $orderId
      *
-     * @return Collection
+     * @return array
      */
     public function receivedOrder($orderId)
     {
         $result = $this->parseJSON('eleme.order.receivedOrder', ['orderId' => $orderId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -263,13 +263,13 @@ class Order extends Api
      *
      * @param $params
      *
-     * @return Collection
+     * @return array
      */
     public function replyReminder($params)
     {
         $result = $this->parseJSON('eleme.order.replyReminder', $params);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -277,13 +277,13 @@ class Order extends Api
      *
      * @param $orderId
      *
-     * @return Collection
+     * @return array
      */
     public function getCommodities($orderId)
     {
         $result = $this->parseJSON('eleme.order.getCommodities', ['orderId' => $orderId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -291,13 +291,13 @@ class Order extends Api
      *
      * @param $orderIds
      *
-     * @return Collection
+     * @return array
      */
     public function mgetCommodities($orderIds)
     {
         $result = $this->parseJSON('eleme.order.mgetCommodities', ['orderIds' => $orderIds]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -305,13 +305,13 @@ class Order extends Api
      *
      * @param $orderId
      *
-     * @return Collection
+     * @return array
      */
     public function getRefundOrder($orderId)
     {
         $result = $this->parseJSON('eleme.order.getRefundOrder', ['orderId' => $orderId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -319,13 +319,13 @@ class Order extends Api
      *
      * @param $orderIds
      *
-     * @return Collection
+     * @return array
      */
     public function mgetRefundOrders($orderIds)
     {
         $result = $this->parseJSON('eleme.order.mgetRefundOrders', ['orderIds' => $orderIds]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -333,13 +333,13 @@ class Order extends Api
      *
      * @param $orderId
      *
-     * @return Collection
+     * @return array
      */
     public function cancelDelivery($orderId)
     {
         $result = $this->parseJSON('eleme.order.cancelDelivery', ['orderId' => $orderId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -347,13 +347,13 @@ class Order extends Api
      *
      * @param $params
      *
-     * @return Collection
+     * @return array
      */
     public function callDelivery($params)
     {
         $result = $this->parseJSON('eleme.order.callDelivery', $params);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -361,13 +361,13 @@ class Order extends Api
      *
      * @param $shopId
      *
-     * @return Collection
+     * @return array
      */
     public function getUnreplyReminders($shopId)
     {
         $result = $this->parseJSON('eleme.order.getUnreplyReminders', ['shopId' => $shopId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -375,13 +375,13 @@ class Order extends Api
      *
      * @param $shopId
      *
-     * @return Collection
+     * @return array
      */
     public function getUnprocessOrders($shopId)
     {
         $result = $this->parseJSON('eleme.order.getUnprocessOrders', ['shopId' => $shopId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -389,13 +389,13 @@ class Order extends Api
      *
      * @param $shopId
      *
-     * @return Collection
+     * @return array
      */
     public function getCancelOrders($shopId)
     {
         $result = $this->parseJSON('eleme.order.getCancelOrders', ['shopId' => $shopId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -403,13 +403,13 @@ class Order extends Api
      *
      * @param $shopId
      *
-     * @return Collection
+     * @return array
      */
     public function getRefundOrders($shopId)
     {
         $result = $this->parseJSON('eleme.order.getRefundOrders', ['shopId' => $shopId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -417,12 +417,12 @@ class Order extends Api
      *
      * @param $params
      *
-     * @return Collection
+     * @return array
      */
     public function getAllOrders($params)
     {
         $result = $this->parseJSON('eleme.order.getAllOrders', $params);
 
-        return new Collection($result);
+        return $result;
     }
 }

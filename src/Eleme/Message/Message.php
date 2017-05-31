@@ -12,13 +12,13 @@ class Message extends Api
      *
      * @param $appId
      *
-     * @return Collection
+     * @return array
      */
     public function getNonReachedMessages($appId)
     {
         $result = $this->parseJSON('eleme.message.getNonReachedMessages', ['appId' => $appId]);
 
-        return new Collection($result);
+        return $result;
     }
 
     /**
@@ -26,12 +26,12 @@ class Message extends Api
      *
      * @param $appId
      *
-     * @return Collection
+     * @return array
      */
     public function getNonReachedOMessages($appId)
     {
         $result = $this->parseJSON('eleme.message.getNonReachedOMessages', ['appId' => $appId]);
 
-        return new Collection($result);
+        return $result;
     }
 }
