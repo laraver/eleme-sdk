@@ -2,7 +2,6 @@
 
 namespace Laraver\Waimai\Eleme\Message;
 
-use Illuminate\Support\Collection;
 use Laraver\Waimai\Eleme\Core\Api;
 
 class Message extends Api
