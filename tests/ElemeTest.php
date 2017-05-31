@@ -19,6 +19,7 @@ class ElemeTest extends BaseTest
     {
         $accessToken = \Mockery::mock('Laraver\Waimai\Eleme\Core\AccessToken[getTokenFromServer]', [[], $this->getMockCache()]);
         $accessToken->shouldReceive('getTokenFromServer')->andReturn('token');
+
         return $accessToken;
     }
 
