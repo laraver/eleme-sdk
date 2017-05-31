@@ -3,24 +3,25 @@
 namespace Laraver\Waimai\Eleme;
 
 use Laraver\Waimai\Eleme\Core\AccessToken;
-use Laraver\Waimai\Eleme\Product\Product;
-use Laraver\Waimai\Eleme\ServiceProviders\ProductServiceProvider;
-use Laraver\Waimai\Eleme\ServiceProviders\ShopServiceProvider;
-use Laraver\Waimai\Eleme\Shop\Shop;
 use Laraver\Waimai\Foundation\Application;
 
 /**
  * Class Eleme.
  *
- * @property AccessToken $access_token
- * @property Product $product
- * @property Shop $shop
+ * @property \Laraver\Waimai\Eleme\Core\AccessToken     $access_token
+ * @property \Laraver\Waimai\Eleme\Product\Product      $product
+ * @property \Laraver\Waimai\Eleme\Shop\Shop            $shop
+ * @property \Laraver\Waimai\Eleme\Message\Message      $message
+ * @property \Laraver\Waimai\Eleme\Packs\Packs          $packs
  */
 class Eleme extends Application
 {
     protected $providers = [
-        ProductServiceProvider::class,
-        ShopServiceProvider::class,
+        ServiceProviders\ProductServiceProvider::class,
+        ServiceProviders\ShopServiceProvider::class,
+        ServiceProviders\OrderServiceProvider::class,
+        ServiceProviders\MessageServiceProvider::class,
+        ServiceProviders\PacksServiceProvider::class,
     ];
 
     protected function getAccessToken($config, $cache)
