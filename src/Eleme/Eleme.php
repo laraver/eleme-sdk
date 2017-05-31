@@ -8,11 +8,11 @@ use Laraver\Waimai\Foundation\Application;
 /**
  * Class Eleme.
  *
- * @property Eleme\Core\AccessToken     $access_token
- * @property Eleme\Product\Product      $product
- * @property Eleme\Shop\Shop            $shop
- * @property Eleme\Message\Message      $message
- * @property Eleme\Packs\Packs          $packs
+ * @property Laraver\Waimai\Eleme\Core\AccessToken     $access_token
+ * @property Laraver\Waimai\Eleme\Product\Product      $product
+ * @property Laraver\Waimai\Eleme\Shop\Shop            $shop
+ * @property Laraver\Waimai\Eleme\Message\Message      $message
+ * @property Laraver\Waimai\Eleme\Packs\Packs          $packs
  */
 class Eleme extends Application
 {
