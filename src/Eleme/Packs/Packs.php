@@ -2,7 +2,6 @@
 
 namespace Laraver\Waimai\Eleme\Packs;
 
-use Illuminate\Support\Collection;
 use Laraver\Waimai\Eleme\Core\Api;
 
 class Packs extends Api
