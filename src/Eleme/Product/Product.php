@@ -272,4 +272,200 @@ class Product extends Api
 
         return new Collection($result);
     }
+
+    /**
+     * 批量添加商品
+     *
+     * @param $params
+     *
+     * @return Collection
+     */
+    public function batchCreateItems($params)
+    {
+        $result = $this->parseJSON('eleme.product.item.batchCreateItems', $params);
+
+        return new Collection($result);
+    }
+
+    /**
+     * 更新商品
+     *
+     * @param $params
+     *
+     * @return Collection
+     */
+    public function updateItem($params)
+    {
+        $result = $this->parseJSON('eleme.product.item.updateItem', $params);
+
+        return new Collection($result);
+    }
+
+    /**
+     * 批量置满库存.
+     *
+     * @param $specIds
+     *
+     * @return Collection
+     */
+    public function batchFillStock($specIds)
+    {
+        $result = $this->parseJSON('eleme.product.item.batchFillStock', ['specIds' => $specIds]);
+
+        return new Collection($result);
+    }
+
+    /**
+     * 批量沽清库存.
+     *
+     * @param $specIds
+     *
+     * @return Collection
+     */
+    public function batchClearStock($specIds)
+    {
+        $result = $this->parseJSON('eleme.product.item.batchClearStock', ['specIds' => $specIds]);
+
+        return new Collection($result);
+    }
+
+    /**
+     * 批量上架商品.
+     *
+     * @param $specIds
+     *
+     * @return Collection
+     */
+    public function batchOnShelf($specIds)
+    {
+        $result = $this->parseJSON('eleme.product.item.batchOnShelf', ['specIds' => $specIds]);
+
+        return new Collection($result);
+    }
+
+    /**
+     * 批量下架商品.
+     *
+     * @param $specIds
+     *
+     * @return Collection
+     */
+    public function batchOffShelf($specIds)
+    {
+        $result = $this->parseJSON('eleme.product.item.batchOffShelf', ['specIds' => $specIds]);
+
+        return new Collection($result);
+    }
+
+    /**
+     * 删除商品.
+     *
+     * @param $itemId
+     *
+     * @return Collection
+     */
+    public function removeItem($itemId)
+    {
+        $result = $this->parseJSON('eleme.product.item.removeItem', ['itemId' => $itemId]);
+
+        return new Collection($result);
+    }
+
+    /**
+     * 批量删除商品.
+     *
+     * @param $itemIds
+     *
+     * @return Collection
+     */
+    public function batchRemoveItems($itemIds)
+    {
+        $result = $this->parseJSON('eleme.product.item.batchRemoveItems', ['itemIds' => $itemIds]);
+
+        return new Collection($result);
+    }
+
+    /**
+     * 批量更新商品库存.
+     *
+     * @param $params
+     *
+     * @return Collection
+     */
+    public function batchUpdateSpecStocks($params)
+    {
+        $result = $this->parseJSON('eleme.product.item.batchUpdateSpecStocks', $params);
+
+        return new Collection($result);
+    }
+
+    /**
+     * 设置商品排序.
+     *
+     * @param $params
+     *
+     * @return Collection
+     */
+    public function setItemPositions($params)
+    {
+        $result = $this->parseJSON('eleme.product.item.setItemPositions', $params);
+
+        return new Collection($result);
+    }
+
+    /**
+     * 批量沽清库存并在次日2:00开始置满.
+     *
+     * @param $clearStocks
+     *
+     * @return Collection
+     */
+    public function clearAndTimingMaxStock($clearStocks)
+    {
+        $result = $this->parseJSON('eleme.product.item.clearAndTimingMaxStock', ['clearStocks' => $clearStocks]);
+
+        return new Collection($result);
+    }
+
+    /**
+     * 设置商品排序.
+     *
+     * @param $params
+     *
+     * @return Collection
+     */
+    public function getItemByShopIdAndExtendCode($params)
+    {
+        $result = $this->parseJSON('eleme.product.item.getItemByShopIdAndExtendCode', $params);
+
+        return new Collection($result);
+    }
+
+    /**
+     * 根据商品条形码获取商品.
+     *
+     * @param $params
+     *
+     * @return Collection
+     */
+    public function getItemsByShopIdAndBarCode($params)
+    {
+        $result = $this->parseJSON('eleme.product.item.getItemsByShopIdAndBarCode', $params);
+
+        return new Collection($result);
+    }
+
+    /**
+     * 批量修改商品价格.
+     *
+     * @param $params
+     *
+     * @return Collection
+     */
+    public function batchUpdatePrices($params)
+    {
+        $result = $this->parseJSON('eleme.product.item.batchUpdatePrices', $params);
+
+        return new Collection($result);
+    }
 }

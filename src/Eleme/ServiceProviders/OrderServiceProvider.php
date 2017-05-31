@@ -2,11 +2,11 @@
 
 namespace Laraver\Waimai\Eleme\ServiceProviders;
 
-use Laraver\Waimai\Eleme\Shop\Shop;
+use Laraver\Waimai\Eleme\Order\Order;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
-class ShopServiceProvider implements ServiceProviderInterface
+class OrderServiceProvider implements ServiceProviderInterface
 {
     /**
      * Registers services on the given container.
@@ -18,10 +18,10 @@ class ShopServiceProvider implements ServiceProviderInterface
      */
     public function register(Container $pimple)
     {
-        $pimple['shop'] = function ($pimple) {
-            $shop = new Shop($pimple['access_token']);
+        $pimple['order'] = function ($pimple) {
+            $order = new Order($pimple['access_token']);
 
-            return $shop;
+            return $order;
         };
     }
 }
