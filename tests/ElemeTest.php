@@ -9,6 +9,25 @@ class ElemeTest extends BaseTest
         parent::__construct();
     }
 
+    public function getProduct()
+    {
+        $product = \Mockery::mock('Laraver\Waimai\Eleme\Product\Product[parseJSON]', [$this->getMockAccessToken()]);
+        $product->shouldReceive('parseJSON')->andReturnUsing();
+    }
+
+    public function getMockAccessToken()
+    {
+        $accessToken = \Mockery::mock('Laraver\Waimai\Eleme\Core\AccessToken[getTokenFromServer]', [[], $this->getMockCache()]);
+        $accessToken->shouldReceive('getTokenFromServer')->andReturn('token');
+
+        return $accessToken;
+    }
+
+    public function getMockCache()
+    {
+        return \Mockery::mock('Doctrine\Common\Cache\Cache');
+    }
+
     /**
      * @test
      */
