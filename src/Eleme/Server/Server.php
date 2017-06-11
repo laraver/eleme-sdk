@@ -1,13 +1,11 @@
 <?php
 
-
 namespace Laraver\Waimai\Eleme\Server;
 
 use Exception;
 
 class Server
 {
-
     private $secret;
 
     public function __construct($secret)
@@ -28,7 +26,7 @@ class Server
         if (!$content) {
             return $this->success();
         }
-        
+
         $message = $this->convertMessage($content);
 
         $this->checkSignature($message);
@@ -45,7 +43,7 @@ class Server
         } catch (Exception $e) {
             throw new Exception('convert content to message error.');
         }
-        
+
         return $message;
     }
 
@@ -53,8 +51,10 @@ class Server
      * 检查签名合法性.
      *
      * @param $message
-     * @return bool
+     *
      * @throws Exception
+     *
+     * @return bool
      */
     private function checkSignature($message)
     {
@@ -73,6 +73,7 @@ class Server
      * 根据参数获取签名.
      *
      * @param $param
+     *
      * @return string
      */
     private function getSignature($param)
@@ -81,10 +82,10 @@ class Server
         $string = '';
 
         foreach ($param as $key => $value) {
-            $string .= $key . '=' . $value;
+            $string .= $key.'='.$value;
         }
 
-        return strtoupper(md5($string . $this->secret));
+        return strtoupper(md5($string.$this->secret));
     }
 
     /**
@@ -93,8 +94,5 @@ class Server
     private function success()
     {
         echo json_encode(['message' => 'ok']);
-
-        return null;
     }
-
 }
