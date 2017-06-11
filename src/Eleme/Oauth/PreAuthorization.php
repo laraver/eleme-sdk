@@ -2,11 +2,8 @@
 
 namespace Laraver\Waimai\Eleme\Oauth;
 
-use Symfony\Component\HttpFoundation\RedirectResponse;
-
 class PreAuthorization extends Api
 {
-
     private $state;
 
     /**
@@ -16,12 +13,12 @@ class PreAuthorization extends Api
      */
     public function getTargetUrl()
     {
-        return $this->accessToken->getUrl() . '/authorize?'.http_build_query([
+        return $this->accessToken->getUrl().'/authorize?'.http_build_query([
                 'response_type' => 'code',
-                'client_id' => $this->accessToken->getAppId(),
-                'state' => $this->state ?: $this->accessToken->createUuid(),
-                'redirect_uri' => $this->accessToken->getRedirectUri(),
-                'scope' => $this->accessToken->getScope()
+                'client_id'     => $this->accessToken->getAppId(),
+                'state'         => $this->state ?: $this->accessToken->createUuid(),
+                'redirect_uri'  => $this->accessToken->getRedirectUri(),
+                'scope'         => $this->accessToken->getScope(),
             ]);
     }
 
@@ -29,6 +26,7 @@ class PreAuthorization extends Api
      * 设置回调链接.
      *
      * @param $url
+     *
      * @return $this
      */
     public function request($url)
@@ -42,6 +40,7 @@ class PreAuthorization extends Api
      * 设置 state.
      *
      * @param $state
+     *
      * @return $this
      */
     public function setState($state)
@@ -58,5 +57,4 @@ class PreAuthorization extends Api
     {
         header('Location:'.$this->getTargetUrl());
     }
-
 }

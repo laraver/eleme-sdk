@@ -24,6 +24,7 @@ class AccessToken extends AbstractAccessToken
      * @param $appId
      * @param $secret
      * @param bool $debug
+     *
      * @throws Exception
      */
     public function __construct($appId, $secret, $debug = false)

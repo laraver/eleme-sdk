@@ -2,7 +2,6 @@
 
 namespace Laraver\Waimai\Eleme\ServiceProviders;
 
-use Laraver\Waimai\Eleme\Message\Message;
 use Laraver\Waimai\Eleme\Server\Server;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;

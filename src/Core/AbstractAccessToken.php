@@ -56,7 +56,8 @@ abstract class AbstractAccessToken
 
     /**
      * @param mixed $token
-     * @param int $expires
+     * @param int   $expires
+     *
      * @return $this
      */
     public function setToken($token, $expires = 86400)
@@ -78,7 +79,6 @@ abstract class AbstractAccessToken
         $cached = $this->getCache()->fetch($this->getCacheKey()) ?: $this->token;
 
         if ($forceRefresh || empty($cached)) {
-
             $result = $this->getTokenFromServer();
 
             $this->checkTokenResponse($result);

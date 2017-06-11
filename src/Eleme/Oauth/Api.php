@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Laraver\Waimai\Eleme\Oauth;
 
 use Laraver\Waimai\Eleme\Core\Api as CoreApi;
@@ -8,7 +7,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class Api extends CoreApi
 {
-
     /**
      * The request token.
      *
@@ -49,6 +47,7 @@ class Api extends CoreApi
 
     /**
      * @param null $authCode
+     *
      * @return mixed|string
      */
     public function getToken($authCode = null)

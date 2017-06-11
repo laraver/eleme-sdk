@@ -1,16 +1,13 @@
 <?php
 
-
 namespace Laraver\Waimai\Eleme\Oauth;
-
 
 use Illuminate\Support\Str;
 use Laraver\Waimai\Eleme\Eleme;
 use Pimple\Container;
 
 /**
- * Class Oauth
- * @package Laraver\Waimai\Eleme\Oauth
+ * Class Oauth.
  *
  * @property \Laraver\Waimai\Eleme\Oauth\Api                    $api
  * @property \Laraver\Waimai\Eleme\Oauth\PreAuthorization       $pre_auth
@@ -42,6 +39,7 @@ class Oauth
      * Create an instance of the Eleme for the given authorizer.
      *
      * @param $token
+     *
      * @return Eleme
      */
     public function createAuthorizerApplication($token)
@@ -60,6 +58,7 @@ class Oauth
      *
      * @param $key
      * @param callable|null $callable
+     *
      * @return mixed
      */
     private function fetch($key, callable $callable = null)
@@ -78,6 +77,7 @@ class Oauth
      *
      * @param $method
      * @param $args
+     *
      * @return mixed
      */
     public function __call($method, $args)
@@ -89,6 +89,7 @@ class Oauth
      * magic method.
      *
      * @param $key
+     *
      * @return mixed
      */
     public function __get($key)
