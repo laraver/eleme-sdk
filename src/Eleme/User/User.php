@@ -17,16 +17,4 @@ class User extends Api
 
         return $result;
     }
-
-    /**
-     * 获取当前授权帐号的手机号,特权接口仅部分帐号可以调用.
-     *
-     * @return array
-     */
-    public function getPhoneNumber()
-    {
-        $result = $this->parseJSON('eleme.user.getPhoneNumber');
-
-        return $result;
-    }
 }

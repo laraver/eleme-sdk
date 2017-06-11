@@ -13,6 +13,9 @@ use Laraver\Waimai\Foundation\Application;
  * @property \Laraver\Waimai\Eleme\Shop\Shop            $shop
  * @property \Laraver\Waimai\Eleme\Message\Message      $message
  * @property \Laraver\Waimai\Eleme\Packs\Packs          $packs
+ * @property \Laraver\Waimai\Eleme\Oauth\Oauth          $oauth
+ * @property \Laraver\Waimai\Eleme\User\User            $user
+ * @property \Laraver\Waimai\Eleme\Server\Server        $server
  */
 class Eleme extends Application
 {
@@ -22,10 +25,13 @@ class Eleme extends Application
         ServiceProviders\OrderServiceProvider::class,
         ServiceProviders\MessageServiceProvider::class,
         ServiceProviders\PacksServiceProvider::class,
+        ServiceProviders\OauthServiceProvider::class,
+        ServiceProviders\UserServiceProvider::class,
+        ServiceProviders\ServerServiceProvider::class,
     ];
 
-    protected function getAccessToken($config, $cache)
+    protected function getAccessToken($config)
     {
-        return new AccessToken($config, $cache);
+        return new AccessToken($config['app_id'], $config['secret'], array_get($config, 'debug', false));
     }
 }

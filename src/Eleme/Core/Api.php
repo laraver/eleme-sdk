@@ -3,6 +3,7 @@
 namespace Laraver\Waimai\Eleme\Core;
 
 use Exception;
+use Laraver\Waimai\Core\AbstractAccessToken;
 use Laraver\Waimai\Core\AbstractAPI;
 use Laraver\Waimai\Support\Http;
 
@@ -47,6 +48,14 @@ class Api extends AbstractAPI
     }
 
     /**
+     * @return AbstractAccessToken
+     */
+    public function getAccessToken()
+    {
+        return $this->accessToken;
+    }
+
+    /**
      * Parse JSON from response and check error.
      *
      * @param $api
@@ -65,7 +74,7 @@ class Api extends AbstractAPI
             'action' => $api,
             'token'  => $this->accessToken->getToken(),
             'metas'  => [
-                'app_key'   => $this->accessToken->appId,
+                'app_key'   => $this->accessToken->getAppId(),
                 'timestamp' => time(),
             ],
             'params' => $args,
@@ -73,7 +82,7 @@ class Api extends AbstractAPI
 
         $protocol['signature'] = $this->accessToken->signature($protocol);
 
-        $result = $http->json($this->accessToken->url.'/api/v1', $protocol, true);
+        $result = $http->json($this->accessToken->getUrl().'/api/v1', $protocol, true);
 
         $this->checkAndThrow($result);
 
@@ -101,7 +110,7 @@ class Api extends AbstractAPI
     public function middlewares()
     {
         $this->http->addMiddleware($this->headerMiddleware([
-            'Authorization'   => 'Basic '.base64_encode($this->accessToken->appId.':'.$this->accessToken->secret),
+            'Authorization'   => 'Basic '.base64_encode($this->accessToken->getAppId().':'.$this->accessToken->getSecret()),
             'Accept-Encoding' => 'gzip',
         ]));
     }

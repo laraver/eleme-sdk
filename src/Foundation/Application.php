@@ -4,6 +4,7 @@ namespace Laraver\Waimai\Foundation;
 
 use Doctrine\Common\Cache\FilesystemCache;
 use Pimple\Container;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class Application.
@@ -24,12 +25,14 @@ abstract class Application extends Container
             return new FilesystemCache(sys_get_temp_dir());
         };
 
+        $this['request'] = function () {
+            return Request::createFromGlobals();
+        };
+
         $this->registerProviders();
 
-        $this['access_token'] = $this->getAccessToken($this['config'], $this['cache']);
+        $this['access_token'] = $this->getAccessToken($this['config']);
     }
-
-    abstract protected function getAccessToken($config, $cache);
 
     /**
      * Register providers.
@@ -63,4 +66,6 @@ abstract class Application extends Container
     {
         $this->offsetSet($id, $value);
     }
+
+    abstract protected function getAccessToken($config);
 }

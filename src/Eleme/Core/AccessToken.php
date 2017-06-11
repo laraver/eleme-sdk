@@ -2,9 +2,7 @@
 
 namespace Laraver\Waimai\Eleme\Core;
 
-use Doctrine\Common\Cache\Cache;
 use Exception;
-use Illuminate\Support\Arr;
 use Laraver\Waimai\Core\AbstractAccessToken;
 
 class AccessToken extends AbstractAccessToken
@@ -14,44 +12,28 @@ class AccessToken extends AbstractAccessToken
 
     protected $prefix = 'laraver.waimai.eleme.token.';
 
+    private $url;
+
+    protected $tokenJsonKey = 'access_token';
+
+    protected $expiresKey = 'expires_in';
+
     /**
      * Constructor.
      *
-     * @param $config
-     * @param Cache $cache
-     *
+     * @param $appId
+     * @param $secret
+     * @param bool $debug
      * @throws Exception
      */
-    public function __construct($config, Cache $cache)
+    public function __construct($appId, $secret, $debug = false)
     {
-        if (!($appId = Arr::get($config, 'app_id')) || !($secret = Arr::get($config, 'secret'))) {
-            throw new Exception('both app_id and secret are required!');
-        }
-
         $this->appId = $appId;
         $this->secret = $secret;
-        $this->cache = $cache;
-        $this->url = Arr::get($config, 'debug', false) ? static::SANDBOX_API_URL : static::API_URL;
+        $this->url = $debug ? static::SANDBOX_API_URL : static::API_URL;
     }
 
-    public function getToken($force = false)
-    {
-        $cacheKey = $this->getCacheKey();
-
-        $cached = $this->cache->fetch($cacheKey);
-
-        if ($force || !$cached) {
-            $token = $this->getTokenFromServer();
-
-            $this->cache->save($cacheKey, $token['access_token'], $token['expires_in'] - 1800);
-
-            return $token['access_token'];
-        }
-
-        return $cached;
-    }
-
-    private function getTokenFromServer()
+    public function getTokenFromServer()
     {
         $response = (new Api($this))->getHttp()->post($this->url.'/token', [
             'grant_type' => 'client_credentials',
@@ -90,5 +72,17 @@ class AccessToken extends AbstractAccessToken
     public function getPrefix()
     {
         return 'laraver.waimai.eleme.token.';
+    }
+
+    public function checkTokenResponse($result)
+    {
+        if (isset($result['error'])) {
+            throw new Exception($result['error_description']);
+        }
+    }
+
+    public function getUrl()
+    {
+        return $this->url;
     }
 }
