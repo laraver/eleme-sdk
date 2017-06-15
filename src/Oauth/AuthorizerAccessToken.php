@@ -2,13 +2,12 @@
 
 namespace Laraver\Eleme\Oauth;
 
-use Laraver\Eleme\Core\Api as CoreApi;
 use Laraver\Eleme\Core\AccessToken as CoreAccessToken;
+use Laraver\Eleme\Core\Api as CoreApi;
 use Symfony\Component\HttpFoundation\Request;
 
 class AuthorizerAccessToken extends CoreAccessToken
 {
-
     private $scope;
 
     /**
@@ -44,10 +43,10 @@ class AuthorizerAccessToken extends CoreAccessToken
     public function getTokenFromServer($authCode = null)
     {
         $response = (new CoreApi($this))->getHttp()->post($this->getUrl().'/token', [
-            'grant_type' => 'authorization_code',
-            'client_id' => $this->getAppId(),
-            'code' => $authCode ?: $this->request->get('code'),
-            'redirect_uri' => $this->request->getUri()
+            'grant_type'   => 'authorization_code',
+            'client_id'    => $this->getAppId(),
+            'code'         => $authCode ?: $this->request->get('code'),
+            'redirect_uri' => $this->request->getUri(),
         ]);
 
         return json_decode(strval($response->getBody()), true);
