@@ -1,6 +1,7 @@
 <?php
 
 namespace Laraver\Eleme\Oauth;
+
 class PreAuthorization extends Api
 {
     private $state;

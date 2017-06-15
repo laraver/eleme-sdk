@@ -7,7 +7,6 @@ use Hanson\Foundation\AbstractAPI;
 
 class Api extends AbstractAPI
 {
-
     /**
      * The request token.
      *
@@ -51,7 +50,7 @@ class Api extends AbstractAPI
      * Parse JSON from response and check error.
      *
      * @param $api
-     * @param array  $args
+     * @param array $args
      *
      * @return mixed
      */
