@@ -1,32 +1,22 @@
 {
-    "name": "laraver/waimai-sdk",
-    "description": "饿了么、美团、百度外卖的SDK（三合一）",
+    "name": "laraver/eleme-sdk",
+    "description": "饿了么 SDK",
     "authors": [
         {
             "name": "HanSon",
             "email": "h@hanc.cc"
+        },
+        {
+            "name": "JokerLinly",
+            "email": "JokerLinly@gmail.com"
         }
     ],
     "require": {
-        "guzzlehttp/guzzle": "^6.2",
-        "pimple/pimple": "^3.0",
-        "illuminate/support": "^5.4",
-        "symfony/http-foundation": "^3.2",
-        "doctrine/cache": "^1.6"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "6.1",
-        "vlucas/phpdotenv": "^2.4",
-        "mockery/mockery": "^0.9.9"
+        "hanson/foundation-sdk": "dev-master"
     },
     "autoload": {
         "psr-4": {
-            "Laraver\\Waimai\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Laraver\\Waimai\\Tests\\": "tests/"
+            "Laraver\\Eleme\\": "src/"
         }
     }
 }
