@@ -2,7 +2,6 @@
 
 namespace Laraver\Eleme\ServiceProviders;
 
-use Laraver\Eleme\Message\Message;
 use Laraver\Eleme\Server\Server;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
