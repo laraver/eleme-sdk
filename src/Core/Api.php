@@ -50,11 +50,11 @@ class Api extends AbstractAPI
      * Parse JSON from response and check error.
      *
      * @param $api
-     * @param array $args
+     * @param array|null $args
      *
      * @return mixed
      */
-    public function parseJSON($api, array $args = [])
+    public function parseJSON($api, $args = null)
     {
         $http = $this->getHttp();
 
