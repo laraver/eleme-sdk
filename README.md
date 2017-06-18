@@ -1,2 +1,2 @@
-# waimai-sdk
-最优雅好用的外卖SDK
+# eleme-sdk
+饿了么 SDK
