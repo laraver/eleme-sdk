@@ -13,6 +13,7 @@ use Hanson\Foundation\Foundation;
  * @property \Laraver\Eleme\Message\Message      $message
  * @property \Laraver\Eleme\Packs\Packs          $packs
  * @property \Laraver\Eleme\Oauth\Oauth          $oauth
+ * @property \Laraver\Eleme\Order\Order          $order
  * @property \Laraver\Eleme\User\User            $user
  * @property \Laraver\Eleme\Server\Server        $server
  */
