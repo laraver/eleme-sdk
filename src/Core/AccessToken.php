@@ -49,7 +49,7 @@ class AccessToken extends AbstractAccessToken
 
     public function signature($protocol)
     {
-        $merged = array_merge($protocol['metas'], $protocol['params']);
+        $merged = array_merge($protocol['metas'], (array) $protocol['params']);
         ksort($merged);
         $string = '';
 
