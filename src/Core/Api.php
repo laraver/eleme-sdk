@@ -54,7 +54,7 @@ class Api extends AbstractAPI
      *
      * @return mixed
      */
-    public function parseJSON($api, $args = null)
+    public function parseJSON($api, array $args = [])
     {
         $http = $this->getHttp();
 
@@ -67,7 +67,7 @@ class Api extends AbstractAPI
                 'app_key'   => $this->accessToken->getAppId(),
                 'timestamp' => time(),
             ],
-            'params' => $args,
+            'params' => $args ?: (object) null,
         ];
 
         $protocol['signature'] = $this->accessToken->signature($protocol);
