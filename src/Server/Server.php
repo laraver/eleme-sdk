@@ -22,16 +22,13 @@ class Server
     {
         $content = file_get_contents('php://input');
 
-        file_put_contents('t1.log', $content);
         if (!$content) {
-            return $this->success();
+            return false;
         }
 
         $message = $this->convertMessage($content);
 
         $this->checkSignature($message);
-
-        $this->success();
 
         return $message;
     }
@@ -86,13 +83,5 @@ class Server
         }
 
         return strtoupper(md5($string.$this->secret));
-    }
-
-    /**
-     * 返回结果给饿了么服务器.
-     */
-    private function success()
-    {
-        echo json_encode(['message' => 'ok']);
     }
 }
