@@ -53,8 +53,8 @@ class Api extends CoreApi
 
     /**
      * @param null $authCode
-     *
      * @param bool $refresh
+     *
      * @return mixed|string
      */
     public function getToken($authCode = null, $refresh = false)
