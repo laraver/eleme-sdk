@@ -40,13 +40,27 @@ class AuthorizerAccessToken extends CoreAccessToken
         return $this;
     }
 
-    public function getTokenFromServer($authCode = null)
+    public function getTokenFromServer($authCode = null, $refresh = false)
     {
+        if ($refresh) {
+            return $this->refreshToken($authCode);
+        }
+
         $response = (new CoreApi($this))->getHttp()->post($this->getUrl().'/token', [
             'grant_type'   => 'authorization_code',
             'client_id'    => $this->getAppId(),
             'code'         => $authCode ?: $this->request->get('code'),
             'redirect_uri' => $this->request->getUri(),
+        ]);
+
+        return json_decode(strval($response->getBody()), true);
+    }
+
+    public function refreshToken($refreshToken)
+    {
+        $response = (new CoreApi($this))->getHttp()->post($this->getUrl().'/token', [
+            'grant_type'    => 'refresh_token',
+            'refresh_token' => $refreshToken,
         ]);
 
         return json_decode(strval($response->getBody()), true);
