@@ -21,7 +21,8 @@ class Product extends Api
     }
 
     /**
-     * 查询店铺商品分类，包含二级分类.
+     * 查询店铺商品分类，�
+     * 含二级分类.
      *
      * @param $shopId
      *
@@ -35,7 +36,8 @@ class Product extends Api
     }
 
     /**
-     * 查询商品分类详情.
+     * 查询商品分类详�
+     * .
      *
      * @param $categoryId
      *
@@ -49,7 +51,9 @@ class Product extends Api
     }
 
     /**
-     * 查询商品分类详情，包含二级分类.
+     * 查询商品分类详�
+     * ，�
+     * 含二级分类.
      *
      * @param $categoryId
      *
@@ -105,7 +109,8 @@ class Product extends Api
     }
 
     /**
-     * 更新商品分类，包含二级分类.
+     * 更新商品分类，�
+     * 含二级分类.
      *
      * @param $params
      *
@@ -231,7 +236,8 @@ class Product extends Api
     }
 
     /**
-     * 查询商品详情.
+     * 查询商品详�
+     * .
      *
      * @param $itemId
      *
@@ -245,7 +251,8 @@ class Product extends Api
     }
 
     /**
-     * 批量查询商品详情.
+     * 批量查询商品详�
+     * .
      *
      * @param $itemIds
      *
@@ -315,7 +322,8 @@ class Product extends Api
     }
 
     /**
-     * 批量沽清库存.
+     * 批量沽�
+     * 库存.
      *
      * @param $specIds
      *
@@ -413,7 +421,8 @@ class Product extends Api
     }
 
     /**
-     * 批量沽清库存并在次日2:00开始置满.
+     * 批量沽�
+     * 库存并在次日2:00开始置满.
      *
      * @param $clearStocks
      *
