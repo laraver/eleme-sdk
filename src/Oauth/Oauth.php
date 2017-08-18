@@ -12,7 +12,7 @@ use Pimple\Container;
  * @property \Laraver\Eleme\Oauth\Api                    $api
  * @property \Laraver\Eleme\Oauth\PreAuthorization       $pre_auth
  *
- * @method array getToken($authCode = null)
+ * @method array getToken($authCode = null, $refresh = true)
  * @method array getCode()
  * @method array getState()
  */
