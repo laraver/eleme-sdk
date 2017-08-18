@@ -147,8 +147,7 @@ class Order extends Api
     }
 
     /**
-     * 获取订单�
-     * �送记录.
+     * 获取订单配送记录.
      *
      * @param $orderId
      *
@@ -162,8 +161,7 @@ class Order extends Api
     }
 
     /**
-     * 批量获取订单最新�
-     * �送记录.
+     * 批量获取订单最新配送记录.
      *
      * @param $orderIds
      *
@@ -177,10 +175,7 @@ class Order extends Api
     }
 
     /**
-     * �
-     * �送异常或�
-     * 物流拒单后选择自行�
-     * �送(推荐).
+     * 配送异常或者物流拒单后选择自行配送(推荐).
      *
      * @param $orderId
      *
@@ -194,10 +189,7 @@ class Order extends Api
     }
 
     /**
-     * �
-     * �送异常或�
-     * 物流拒单后选择自行�
-     * �送.
+     * 配送异常或者物流拒单后选择自行配送.
      *
      * @param $orderId
      *
@@ -211,10 +203,7 @@ class Order extends Api
     }
 
     /**
-     * �
-     * �送异常或�
-     * 物流拒单后选择不再�
-     * �送(推荐).
+     * 配送异常或者物流拒单后选择不再配送(推荐).
      *
      * @param $orderId
      *
@@ -228,10 +217,7 @@ class Order extends Api
     }
 
     /**
-     * �
-     * �送异常或�
-     * 物流拒单后选择不再�
-     * �送.
+     * 配送异常或者物流拒单后选择不再配送.
      *
      * @param $orderId
      *
@@ -343,8 +329,7 @@ class Order extends Api
     }
 
     /**
-     * 取消呼叫�
-     * �送.
+     * 取消呼叫配送.
      *
      * @param $orderId
      *
@@ -358,8 +343,7 @@ class Order extends Api
     }
 
     /**
-     * 呼叫�
-     * �送.
+     * 呼叫配送.
      *
      * @param $params
      *
@@ -429,8 +413,7 @@ class Order extends Api
     }
 
     /**
-     * 查询�
-     * �部订单.
+     * 查询全部订单.
      *
      * @param $params
      *
