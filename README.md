@@ -14,7 +14,6 @@
 $eleme = new Eleme([
     'app_id' => '',
     'secret' => '',
-    $url = $this->eleme->oauth->pre_auth->request($callbackUrl)->getTargetUrl();
     'debug'  => true,
     'log' => [
         'file' => storage_path('logs/eleme.log'),
