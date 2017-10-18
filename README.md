@@ -56,3 +56,20 @@ $order = $eleme->order;
 
 PS: 其他请参考 https://github.com/hanson/eleme-sdk/blob/master/src/Eleme.php 中的备注
 
+### 接收推送
+
+```
+$response = $eleme->server->serve();
+
+if (!$response) {
+    return;
+}
+
+$message = json_decode($response['message'], true);
+
+if ($response['type'] == 10) { // 订单生效
+
+} 
+# elseif(...)
+
+```
