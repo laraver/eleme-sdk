@@ -89,4 +89,9 @@ class AuthorizerAccessToken extends CoreAccessToken
     {
         return $this->redirectUri;
     }
+
+    public function getToken($forceRefresh = false)
+    {
+        return $this->token ?: parent::getToken($forceRefresh);
+    }
 }
