@@ -467,4 +467,17 @@ class Product extends Api
 
         return $result;
     }
+
+    /**
+     * 分页获取店铺下的商品
+     *
+     * @param $params
+     * @return mixed
+     */
+    public function queryItemByPage($params)
+    {
+        $result = $this->parseJSON('eleme.product.item.queryItemByPage', $params);
+
+        return $result;
+    }
 }
