@@ -19,7 +19,7 @@ class AccessTokenServiceProvider implements ServiceProviderInterface
     public function register(Container $pimple)
     {
         $pimple['access_token'] = function ($pimple) {
-            return new AccessToken($pimple['config']['app_id'], $pimple['config']['secret'], array_get($pimple['config'], 'debug', false));
+            return new AccessToken($pimple->getConfig('app_id'), $pimple->getConfig('secret'), $pimple->getConfig('debug'));
         };
     }
 }
