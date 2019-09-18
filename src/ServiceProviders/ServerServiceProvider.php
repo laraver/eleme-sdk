@@ -19,7 +19,7 @@ class ServerServiceProvider implements ServiceProviderInterface
     public function register(Container $pimple)
     {
         $pimple['server'] = function ($pimple) {
-            $message = new Server($pimple['config']['secret']);
+            $message = new Server($pimple->getConfig('secret'));
 
             return $message;
         };

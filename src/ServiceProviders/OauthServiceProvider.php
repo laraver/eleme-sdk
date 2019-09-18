@@ -29,19 +29,19 @@ class OauthServiceProvider implements ServiceProviderInterface
         };
 
         $pimple['oauth.app'] = function ($pimple) {
-            return new Eleme($pimple['config']->toArray());
+            return new Eleme($pimple->getConfig());
         };
 
         $pimple['oauth.authorizer_access_token'] = function ($pimple) {
             $accessToken = new AuthorizerAccessToken(
-                $pimple['config']['app_id'],
-                $pimple['config']['secret'],
-                $pimple['config']->get('debug')
+                $pimple->getConfig('app_id'),
+                $pimple->getConfig('secret'),
+                $pimple->getConfig('debug')
             );
 
             $accessToken->setRequest($pimple['request']);
             $accessToken->setCache($pimple['cache']);
-            $accessToken->setRedirectUri($pimple['config']->get('redirect_uri'));
+            $accessToken->setRedirectUri($pimple->getConfig('redirect_uri'));
 
             return $accessToken;
         };
